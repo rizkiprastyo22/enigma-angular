@@ -17,8 +17,8 @@
 .left{
     width: 35%;
     float: left;
-    background-color: rgb(2, 117, 216);
-    color: white;
+    background-color: burlywood;
+    color: black;
 }
 
 /* ngatur elemen sebelah kanan */
@@ -42,6 +42,10 @@
     margin-right: auto;
 }
 
+
+/* NGATUR TIAP ELEMEN */
+
+/* ngatur foto profil */
 .foto-profil{
     margin-top: 30px;
 }
@@ -53,6 +57,7 @@
     font-weight: 900;
 }
 
+/* ngatur header jabatan */
 .header-jabatan{
     font-size: 20px;
     text-align: center;
@@ -60,6 +65,7 @@
     margin-top: 5px;
 }
 
+/* ngatur header perusahaan */
 .header-perusahaan{
     font-size: 18px;
     text-align: center;
@@ -67,9 +73,15 @@
     margin-top: 5px;
 }
 
+/* ngatur deskripsi singkat */
 .deskripsi-singkat{
     font-size: 14px;
     font-weight: 300;
     margin-top: 20px;
     margin-left: 10px;
+}
+
+/* contact */
+.contact ul li a{
+    font-size: 2px;
 }
