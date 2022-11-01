@@ -1,0 +1,44 @@
+/* styling semua elemen */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* center text */
+.center{
+    text-align: center;
+}
+
+/* ngejarak content dari pinggir */
+.wrapper{
+    /* padding: 20px; */
+    margin: 20px;
+}
+
+/* css combinator */
+/* jadi yang kena style cuma ul li di dalam class .nav (descendent class) */
+.nav ul li, a{
+    background-color: aqua;
+    /* biar satu baris */
+    display: inline-block;
+    /* biar garisnya hilang */
+    text-decoration: none;
+}
+
+/* center content harus pake display block */
+.content img{
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer >p >span{
+    cursor: pointer;
+    color: blue;
+}
+
+/* harus yang sebelahan, berarti ini cuma apply ke class 2 di sebelah class 1 */
+.satu + .dua{
+    color: blue;
+}
