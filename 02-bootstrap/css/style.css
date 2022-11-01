@@ -48,7 +48,7 @@ nav ul li a{
     nav ul{
         display: block;
         width: 100%;
-        background-color: red;
+        background-color: burlywood;
         position: absolute;
         right: 0;
         top: 70px;
@@ -62,6 +62,6 @@ nav ul li a{
     }
 
     nav ul li a{
-        color: white;
+        color: black;
     }
 }
