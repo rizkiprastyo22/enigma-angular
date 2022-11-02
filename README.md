@@ -2,4 +2,4 @@
 
 ini hari 3
 
-git status
+tes cmm
