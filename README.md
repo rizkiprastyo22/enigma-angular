@@ -2,4 +2,4 @@
 
 ini hari 3
 
-ini baru lagi
+git status
