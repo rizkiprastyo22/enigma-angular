@@ -72,7 +72,7 @@ if(true){
 // MenentukanKelipatan(3);
 // MenentukanKelipatan(5);
 
-let nomorKelipatan = 12
+let nomorKelipatan = 8;
 if(nomorKelipatan%3===0){
     console.log('Angka merupakan kelipatan 3');
 }
@@ -89,3 +89,16 @@ else{
 
 // cuman untuk 2 kondisi, true or false (tenering)
 (nomorKelipatan % 3 === 0) ? console.log('kelipatan 3') : console.log('bukan kelipatan 3');
+// sama kayak if, else if, else
+nomorKelipatan % 3 === 0 ? console.log('kelipatan 3') : nomorKelipatan % 4 === 0 ?
+console.log('kelipatan 4') : console.log('bukan kelipatan 3 dan 4');
+
+// hierarki AND dan OR lebih tinggi di AND karena AND itu satu kesatuan. Urutan tanda kurung, negasi, AND
+// tapi paling aman pakai ()
+let a = 4;
+let b = 3; 
+let c = 2; 
+
+if (a === 0 || b) {
+
+}
