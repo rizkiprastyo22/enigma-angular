@@ -9,10 +9,10 @@ function heroCheck(nama, peran) {
         return 'Peran harus diisi';
     }
     else if(nama && peran=='superhero'){
-        return 'Selamat datang di Dunia Proxytia, ${nama}';
+        return `Selamat datang di Dunia Proxytia, ${nama}`;
     }
     else if(nama && peran=='monster'){
-        return 'Halo Penyihir ${nama}, kamu dapat melihat siapa yang menjadi werewolf';
+        return `Halo Penyihir ${nama}, kamu dapat melihat siapa yang menjadi werewolf`;
     }
     else if(nama && peran != 'superhero' || peran != 'monster'){
         return 'Tidak ada peran selain Superhero dan Monster';
