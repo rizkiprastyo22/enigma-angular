@@ -1,3 +1,4 @@
+// array, datanya mutable (datanya bisa berubah)
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const stringArray = ['a', 'b', 'c', 'd', 'e', 'f'];
 const objArr = [
