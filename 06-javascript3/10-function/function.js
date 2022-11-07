@@ -1,0 +1,1 @@
+// function adalah satu blok kode yang kita beri nama
