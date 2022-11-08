@@ -51,3 +51,78 @@ name = 'Rini';
 console.log(name); // Rini
 console.log(name2); // Dimas
 
+// cara biasa membuat object
+// student = {
+//     id: 1,
+//     nama: 'Dimas',
+//     usia: 16,
+
+// property juga bisa berupa object
+//     alamat: {
+//         kota: 'Jakarta',
+//         distrik: 'Pasar Minggu',
+//         jalan: 'Jl. Raya Pasar Minggu'
+//     },
+
+// bisa memiliki method tanpa perlu mengetik function
+//     getInfo(){
+//         console.log(`namaku ${this.nama}, umurku ${this.usia} tahun, alamat saya di ${this.alamat.jalan}`)
+//     }
+// }
+
+student = {
+    id: 1,
+    nama: 'Dimas',
+    usia: 16,
+
+    // property juga bisa berupa object
+    alamat: {
+        kota: 'Jakarta',
+        distrik: 'Pasar Minggu',
+        jalan: 'Jl. Raya Pasar Minggu'
+    }
+}  
+
+// pengen nyetak object student
+function getInfo(){
+    console.log(`namaku ${this.nama}, umurku ${this.usia} tahun`)
+}
+
+// function getInfo()
+getInfo.apply(student) // hanya bisa menerima dalam bentuk array
+getInfo.call(student) // aman
+
+// akan tetapi, cara di atas gabisa object di dalam object. Bisanya begini:
+function getInfo2(){
+    console.log(`namaku ${this.nama}, tinggalku di ${this.alamat.jalan}`)
+}
+
+getInfo2.apply(student, student.alamat) // atau
+getInfo2.call(student, student.alamat)
+
+
+// melihat list keys pada student
+// console.log(Object.keys(student));
+
+// melihat list value pada student
+// console.log(Object.values(student));
+
+// 1. cara membuat object baru dengan referensi object yang sudah ada dengan cara lama
+// kloning dulu objectnya, lalu ganti propertinya
+// const student2 = Object.create(student);
+// student2.nama = 'Bulan';
+// student2.id = 2;
+
+// cek menggunakan method object
+// student.getInfo();
+// student2.getInfo();
+
+// 2. cara membuat object baru dengan referensi object yang sudah ada dengan cara baru
+// const student3 = {}
+// student3.__proto__ = student;
+// student3.nama = 'Rini';
+// student3.getInfo();
+
+// const objectBatu = {}
+// objectBatu.__proto__ = { object: 'Batu' }
+// console.log(objectBatu.object)
