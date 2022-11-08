@@ -88,18 +88,25 @@ function getInfo(){
     console.log(`namaku ${this.nama}, umurku ${this.usia} tahun`)
 }
 
-// function getInfo()
 getInfo.apply(student) // hanya bisa menerima dalam bentuk array
-getInfo.call(student) // aman
+getInfo.call(student) // menerimanya dalam bentuk variadik
 
 // akan tetapi, cara di atas gabisa object di dalam object. Bisanya begini:
 function getInfo2(){
     console.log(`namaku ${this.nama}, tinggalku di ${this.alamat.jalan}`)
 }
 
-getInfo2.apply(student, student.alamat) // atau
+getInfo2.apply(student, [student.alamat]) // atau
 getInfo2.call(student, student.alamat)
 
+// cara lain lagi adalah menggunakan bind
+const info = getInfo2.bind(student) // harus diassign ke sebuah fungsi yang baru
+info()
+
+// cara lain menggunakan bind
+getInfo2.bind(student)(student.address) // menggunakan instant function
+// bisa juga menerima dalam bentuk array
+getInfo2.bind(student)([student.address])
 
 // melihat list keys pada student
 // console.log(Object.keys(student));
