@@ -32,10 +32,10 @@ function pesanKopi(pesanan, kirimPesan){
 // kalo mau multiple
 // function pesanKopi(pesanan, kirimPesan){
 
-//     // 1. setiap kali ada pesanan baru, akan dimulai di sini
+    // 1. setiap kali ada pesanan baru, akan dimulai di sini
 //     console.log(`Pesanan saya adalah ${pesanan}`)
 
-//     // 2. proses ini dijeda 1 sekon lalu mengecek apakah pesenan teh atau bukan
+    // 2. proses ini dijeda 1 sekon lalu mengecek apakah pesenan teh atau bukan
 //     setTimeout(() => {
 //         for (let i=0; i<pesanan.length; i++){
 //             if(pesanan[i] === 'teh'){
