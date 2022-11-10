@@ -1,0 +1,10 @@
+let myName = 'Rizki';
+let myNumber = 5;
+let isTrue = true;
+let und = undefined;
+let nul = null;
+let arrNumber = [1, 2, 3, 4, 5];
+let arrString = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let arrAny = ['a', 2, undefined, 4, 'e'];
+let any = 'Mandiri';
+let unk = 123;
