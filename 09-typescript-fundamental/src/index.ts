@@ -1,8 +1,8 @@
 // typescript (typely stronger) membutuhkan tipe data
 // kita ngoding typescript, tapi browser menjalankannya dalam bentuk javascript
 
-// cara buat tsconfig.json = tsc --init
 // cara buat package.json = npm init -y
+// cara buat tsconfig.json = tsc --init
 // npx tsc -w src/test.ts --outDir dist
 // kalo npx tsc -w semua ts auto kecompile realtime
 
