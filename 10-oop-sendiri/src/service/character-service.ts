@@ -1,7 +1,10 @@
+import { Character } from "../model/character";
+
 export interface ICharacterFeature{
-    normalAttack(): number;
-    chargeAttack(): number;
-    getDamaged(damage: number): void;
-    checkHp(): number;
-    isAlive(): string;
+    createCharacterAsync(character: Character): Promise<object>
+    normalAttackAsync(): Promise<number>
+    chargeAttackAsync(): Promise<number>
+    getDamagedAsync(charName: string, damage: number): Promise<string>
+    checkHp(): number
+    isAlive(): string
 }

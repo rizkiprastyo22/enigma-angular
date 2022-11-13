@@ -2,6 +2,7 @@ import { Character } from "./model/character";
 import { CharRarity, CharType, CharVision, CharWeapon } from "./model/character-enum";
 import { PlayableCharacter } from "./service/playable-character";
 
+// buat objecct karakter baru
 const lumine: Character = {
     name: 'Lumine',
     weapon: CharWeapon.sword,
@@ -10,29 +11,55 @@ const lumine: Character = {
     type: CharType.playable
 }
 
-const raidenShogun: Character = {
-    name: 'Raiden Shogun',
-    weapon: CharWeapon.polearm,
-    vision: CharVision.electro,
-    rarity: CharRarity.fiveStar,
-    type: CharType.playable
+// buat instance
+const luminePlayable: PlayableCharacter = new PlayableCharacter(lumine)
+
+// buat object menggunakan blueprint class PlayableCharacter
+async function fightProcess(): Promise<void> {
+    try{
+        // buat karakter baru
+        const createCharacter: object = await luminePlayable.createCharacterAsync(lumine)
+        console.log('karakter baru:')
+        console.log(createCharacter)
+
+        // karakter damage
+        const damageNA: number = await luminePlayable.normalAttackAsync()
+        console.log('\ndamage normal attack:')
+        console.log(damageNA)
+
+        const damageCA: number = await luminePlayable.chargeAttackAsync()
+        console.log('\ndamage charged attack:')
+        console.log(damageCA)
+
+        // karakter terkena damage
+        const getDamaged: string = await luminePlayable.getDamagedAsync(lumine.name, 287)
+        console.log('\n' + getDamaged)
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
-const luminePlayable: PlayableCharacter = new PlayableCharacter(lumine)
-console.log(luminePlayable)
+fightProcess()
 
 // damage lumine
-const damageNA1: number = luminePlayable.normalAttack()
-const damageNA2: number = luminePlayable.normalAttack()
-const damageCA: number = luminePlayable.chargeAttack()
+// const damageNA1: number = luminePlayable.normalAttack()
+// const damageNA2: number = luminePlayable.normalAttack()
+// const damageCA: number = luminePlayable.chargeAttack()
 
-console.log('Damage Lumine: ' + [damageNA1, damageNA2, damageCA])
+// console.log('\nDamage Lumine: ' + '\nDamage Normal Attack 1: ' + damageNA1 + '\nDamage Normal Attack 2:' + damageNA2 + '\nDamage Charged Attack: ' + damageCA)
 
-luminePlayable.getDamaged(287)
-const newHp: number = luminePlayable.checkHp()
-console.log('HP Lumine: ' + newHp)
-luminePlayable.getDamaged(1200)
-console.log('Lumine masih hidup?\n' + luminePlayable.isAlive())
-// const raidenShogunPlayable: PlayableCharacter = new PlayableCharacter(raidenShogun)
-// console.log(raidenShogunPlayable)
+// get damage 1
+// luminePlayable.getDamaged(287)
+// console.log('\n'+ lumine.name + ' get damage ' + 287)
+// const newHp: number = luminePlayable.checkHp()
+// console.log('HP Lumine: ' + newHp)
+// console.log('\nLumine masih hidup?\n' + luminePlayable.isAlive())
+
+// get damage 2
+// luminePlayable.getDamaged(1200)
+// console.log('\n'+ lumine.name + ' get damage ' + 1200)
+// const newHp2: number = luminePlayable.checkHp()
+// console.log('HP Lumine: ' + newHp2)
+// console.log('\nLumine masih hidup?\n' + luminePlayable.isAlive())
 
