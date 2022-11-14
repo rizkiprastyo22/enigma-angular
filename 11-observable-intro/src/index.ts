@@ -11,3 +11,8 @@ const promiseObservable: PromiseObservable = new PromiseObservable();
 
 promiseObservable.create();
 promiseObservable.execute();
+
+// unsubscribe setelah 5 detik
+setTimeout(() => {
+    promiseObservable.canceled();
+}, 5000)

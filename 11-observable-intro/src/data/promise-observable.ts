@@ -8,6 +8,7 @@ import { Observable, ReplaySubject } from "rxjs";
 export class PromiseObservable{
     myObservable: any;
     myPromise: any;
+    mySubscription: any;
 
     create(){
         this.myPromise = new Promise<string>((resolve, reject) => {
@@ -15,10 +16,15 @@ export class PromiseObservable{
 
             // sebanyak apapun data yang dikirim, yang pertama aja yang diterima
             // kalo mau semua data dikerjakan, method harus dilakukan berulang
-            resolve('Promise has emitted 1');
-            resolve('Promise has emitted 2');
-            reject('Error detected'); // error ga ngaruh sama sekali
-            resolve('Promise has emitted 3');
+            // resolve('Promise has emitted 1');
+            // resolve('Promise has emitted 2');
+            // reject('Error detected'); // error ga ngaruh sama sekali
+            // resolve('Promise has emitted 3');
+
+            // biar bisa ngalir tiap satu detik (walaupun promise cuma nerima satu)
+            setInterval(() => {
+                resolve('Promise has emitted')
+            }, 1000);
         });
 
         this.myObservable = new Observable<string>(observer => {
@@ -26,11 +32,16 @@ export class PromiseObservable{
 
             // ini semua disampaikan karena observable dia menerima stream data
             // pengiriman datanya berurutan
-            observer.next('Observable has emitted 1');
-            observer.next('Observable has emitted 2');
+            // observer.next('Observable has emitted 1');
+            // observer.next('Observable has emitted 2');
             // observer.error(new Error('Error detected from observable')); // error membuat .next selanjutnya gaakan dijalankan
-            observer.next('Observable has emitted 3');
-            observer.complete(); // complete wajib disimpan di akhir, karena sebagai penanda data terakhir yang diterima
+            // observer.next('Observable has emitted 3');
+            // observer.complete(); // complete wajib disimpan di akhir, karena sebagai penanda data terakhir yang diterima
+
+            // biar bisa ngalir tiap satu detik
+            setInterval(() => {
+                observer.next('Observable has emitted')
+            }, 1000)
 
         })
     }
@@ -40,7 +51,8 @@ export class PromiseObservable{
             console.log(data);
         })
 
-        this.myObservable.subscribe((data: any) => {
+        // mySubsctiption untuk mencontohkan data subscribe myObservable tiap satu detik
+        this.mySubscription = this.myObservable.subscribe((data: any) => {
             console.log(data);
         }, 
 
@@ -56,4 +68,10 @@ export class PromiseObservable{
     // bedanya .subscribe sama .then?
     // 1. .then pada promise, .subscribe pada observable
     // 2. .then, itu kalo digambarin aliran datanya udah terbuka, beda sama .subscribe, kalo belum .subscribe aliran datanya masih tertutup
+
+    canceled(){
+        // coba untuk menampung hasil dari subscribe
+        // variabel mySubscription diunsubscribe
+        this.mySubscription.unsubscribe()
+    }
 }
