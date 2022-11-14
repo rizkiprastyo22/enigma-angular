@@ -23,6 +23,10 @@ async function fightProcess() {
         console.log(damageCA);
         const getDamaged = await luminePlayable.getDamagedAsync(lumine.name, 287);
         console.log('\n' + getDamaged);
+        const getHp = await luminePlayable.checkHpAsync(lumine.name);
+        console.log('\n' + getHp);
+        const isAlive = await luminePlayable.isAliveAsync(lumine.name);
+        console.log('\n' + isAlive);
     }
     catch (error) {
         console.log(error);

@@ -34,6 +34,14 @@ async function fightProcess(): Promise<void> {
         // karakter terkena damage
         const getDamaged: string = await luminePlayable.getDamagedAsync(lumine.name, 287)
         console.log('\n' + getDamaged)
+
+        // darah karakter setela damage
+        const getHp: string = await luminePlayable.checkHpAsync(lumine.name)
+        console.log('\n' + getHp)
+
+        // cek masih hidup?
+        const isAlive: string = await luminePlayable.isAliveAsync(lumine.name)
+        console.log('\n' + isAlive)
     }
     catch(error){
         console.log(error)
@@ -41,25 +49,4 @@ async function fightProcess(): Promise<void> {
 }
 
 fightProcess()
-
-// damage lumine
-// const damageNA1: number = luminePlayable.normalAttack()
-// const damageNA2: number = luminePlayable.normalAttack()
-// const damageCA: number = luminePlayable.chargeAttack()
-
-// console.log('\nDamage Lumine: ' + '\nDamage Normal Attack 1: ' + damageNA1 + '\nDamage Normal Attack 2:' + damageNA2 + '\nDamage Charged Attack: ' + damageCA)
-
-// get damage 1
-// luminePlayable.getDamaged(287)
-// console.log('\n'+ lumine.name + ' get damage ' + 287)
-// const newHp: number = luminePlayable.checkHp()
-// console.log('HP Lumine: ' + newHp)
-// console.log('\nLumine masih hidup?\n' + luminePlayable.isAlive())
-
-// get damage 2
-// luminePlayable.getDamaged(1200)
-// console.log('\n'+ lumine.name + ' get damage ' + 1200)
-// const newHp2: number = luminePlayable.checkHp()
-// console.log('HP Lumine: ' + newHp2)
-// console.log('\nLumine masih hidup?\n' + luminePlayable.isAlive())
 

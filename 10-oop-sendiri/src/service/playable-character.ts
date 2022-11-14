@@ -63,18 +63,26 @@ export class PlayableCharacter implements ICharacterFeature{
         })
     }
 
-    checkHp(): number {
-        if(this.hp < 0){
-            this.hp = 0;
-            return this.hp;
-        }
-        return this.hp;
+    checkHpAsync(charName: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            setTimeout(() => {
+                if(this.hp < 0){
+                    this.hp = 0
+                    resolve('darah ' + charName + ': ' + this.hp)
+                }
+                reject('darah ' + charName + ': ' + this.hp);
+            }, 1000)
+        })
     }
 
-    isAlive(): string {
-        if(this.hp > 0){
-            return 'Lumine masih hidup';
-        }
-        return 'Lumine sudah mati';
+    isAliveAsync(charName: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            setTimeout(() => {
+                if(this.hp > 0){
+                    resolve(charName + ' masih hidup');
+                }
+                reject(charName + ' sudah mati');
+            }, 1000)
+        })
     }
 }

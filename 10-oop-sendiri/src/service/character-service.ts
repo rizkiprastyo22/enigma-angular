@@ -5,6 +5,6 @@ export interface ICharacterFeature{
     normalAttackAsync(): Promise<number>
     chargeAttackAsync(): Promise<number>
     getDamagedAsync(charName: string, damage: number): Promise<string>
-    checkHp(): number
-    isAlive(): string
+    checkHpAsync(charName: string): Promise<string>
+    isAliveAsync(charName: string): Promise<string>
 }

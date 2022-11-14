@@ -50,18 +50,26 @@ class PlayableCharacter {
             }, 1000);
         });
     }
-    checkHp() {
-        if (this.hp < 0) {
-            this.hp = 0;
-            return this.hp;
-        }
-        return this.hp;
+    checkHpAsync(charName) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (this.hp < 0) {
+                    this.hp = 0;
+                    resolve('darah ' + charName + ': ' + this.hp);
+                }
+                reject('darah ' + charName + ': ' + this.hp);
+            }, 1000);
+        });
     }
-    isAlive() {
-        if (this.hp > 0) {
-            return 'Lumine masih hidup';
-        }
-        return 'Lumine sudah mati';
+    isAliveAsync(charName) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (this.hp > 0) {
+                    resolve(charName + ' masih hidup');
+                }
+                reject(charName + ' sudah mati');
+            }, 1000);
+        });
     }
 }
 exports.PlayableCharacter = PlayableCharacter;
