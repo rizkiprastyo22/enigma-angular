@@ -4,6 +4,7 @@
 3. tool-toolnya memudahkan developer (cara membuat komponen dengan cepat)
 4. dicintai banyak developer
 5. dokumentasi angular paling lengkap dan enak
+6. SPA
 
 # simpel deteksi web PWA
 bisa highlight text menggunakan mobile
