@@ -77,6 +77,62 @@ ng generate component pages/home/components/contact/home-contact --flat --skip-t
 ```
 
 # 7. jangan lupa import export tapi dengan cara lebih bagus
+
+home.module.ts
+```
+@NgModule({
+  declarations: [
+    HomeComponent,
+    HomeBannerComponent,
+    HomeNewsletterComponent,
+    HomeServiceComponent,
+    HomeAboutComponent,
+    HomeFaqComponent,
+    HomeInstructorsComponent,
+    HomeContactComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports:[
+    HomeComponent
+  ]
+})
+export class HomeModule { }
+```
+
+pages.module.ts
+```
+@NgModule({
+  declarations: [
+    PagesComponent,
+  ],
+  imports: [
+    CommonModule,
+    HomeModule
+  ],
+  exports: [PagesComponent]
+})
+export class PagesModule { }
+```
+
+app.module.ts
+```
+@NgModule({
+  declarations: [
+    AppComponent,
+
+  ],
+  imports: [
+    BrowserModule,
+    SharedModule,
+    PagesModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+```
+
 ## Nb: Diharapkan teliti, TIDAK BOLEH EXPORT FILE SENDIRI!!!
 
 # 8. penambahan framework css pada angular kita

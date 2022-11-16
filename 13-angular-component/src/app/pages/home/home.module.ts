@@ -9,16 +9,6 @@ import { HomeFaqComponent } from './components/faq/home-faq.component';
 import { HomeInstructorsComponent } from './components/instructors/home-instructors.component';
 import { HomeContactComponent } from './components/contact/home-contact.component';
 
-// const components = [
-//   HomeBannerComponent,
-//   HomeNewsletterComponent,
-//   HomeServiceComponent,
-//   HomeAboutComponent,
-//   HomeFaqComponent,
-//   HomeInstructorsComponent,
-//   HomeContactComponent
-// ]
-
 @NgModule({
   declarations: [
     HomeComponent,
