@@ -8,29 +8,33 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ComponentAComponent implements OnInit {
   // kita bisa tampilin data dari variabel
-  name: string = 'Milea';
-  address: string = 'Bandung';
-  participants: string[] = ['bulan', 'bintang', 'matahari']
-  languages = {
-    name: 'Angular',
-    difficulty: 'Intermediate',
-  }
-  characterGenshin = [{
+  // name: string = 'Milea';
+  // address: string = 'Bandung';
+  // participants: string[] = ['bulan', 'bintang', 'matahari']
+  // languages = {
+  //   name: 'Angular',
+  //   difficulty: 'Intermediate',
+  // }
+
+  characterGenshin = [
+    {
     name: 'Lumine',
-    vision: 'dendro'
-  },{
-    name: 'Raiden',
-    vision: 'electro'
-  }]
+    vision: 'dendro',
+    atk: [{
+      normal: 'normal',
+      chage: 'charge'
+    }]
+    }
+  ]
 
   // cara lain data binding array object
-  characterGenshins(): string {
-    let string = ''
-    for(let i = 0; i < this.characterGenshin.length; i++){
-      string += `${this.characterGenshin[i].name} dengan vision ${this.characterGenshin[i].vision}, `
-    }
-    return string
-  }
+  // characterGenshins(): string {
+  //   let string = ''
+  //   for(let i = 0; i < this.characterGenshin.length; i++){
+  //     string += `${this.characterGenshin[i].name} dengan vision ${this.characterGenshin[i].vision}, `
+  //   }
+  //   return string
+  // }
 
   constructor(
     private readonly route: ActivatedRoute

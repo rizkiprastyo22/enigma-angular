@@ -11,31 +11,36 @@ export class HomeFaqComponent implements OnInit {
     question: 'Where are Exactly?',
     answer: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas nesciunt quaerat eius corrupti at, doloribus molestiae culpa! Dolorem, voluptate voluptatem necessitatibus cumque sapiente eos non ullam obcaecati molestiae ut repellendus!',
     heading: 'headingOne',
-    collapse: 'collapseOne'
+    collapse: 'collapseOne',
+    idCollapse: '#collapseOne'
   },
   {
     question: 'How Much Does it cost to attend?',
     answer: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas nesciunt quaerat eius corrupti at, doloribus molestiae culpa! Dolorem, voluptate voluptatem necessitatibus cumque sapiente eos non ullam obcaecati molestiae ut repellendus!',
     heading: 'headingTwo',
-    collapse: 'collapseTwo'
+    collapse: 'collapseTwo',
+    idCollapse: '#collapseTwo'
   },
   {
     question: 'What Do I Need to Know?',
     answer: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas nesciunt quaerat eius corrupti at, doloribus molestiae culpa! Dolorem, voluptate voluptatem necessitatibus cumque sapiente eos non ullam obcaecati molestiae ut repellendus!',
     heading: 'headingThree',
-    collapse: 'collapseThree'
+    collapse: 'collapseThree',
+    idCollapse: '#collapseThree'
   },
   {
     question: 'How do I Sign Up?',
     answer: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas nesciunt quaerat eius corrupti at, doloribus molestiae culpa! Dolorem, voluptate voluptatem necessitatibus cumque sapiente eos non ullam obcaecati molestiae ut repellendus!',
     heading: 'headingFour',
-    collapse: 'collapseFour'
+    collapse: 'collapseFour',
+    idCollapse: '#collapseFour'
   },
   {
     question: 'Do you help me?',
     answer: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas nesciunt quaerat eius corrupti at, doloribus molestiae culpa! Dolorem, voluptate voluptatem necessitatibus cumque sapiente eos non ullam obcaecati molestiae ut repellendus!',
     heading: 'headingFive',
-    collapse: 'collapseFive'
+    collapse: 'collapseFive',
+    idCollapse: '#collapseFive'
   }]
 
   constructor() { }

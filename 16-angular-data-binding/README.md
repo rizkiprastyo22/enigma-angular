@@ -16,3 +16,5 @@
 # jika mau binding object gabisa secara literal
 - {{ object }} -> ini ga error tapi datanya ga tampil
 - {{ object.key }} -> baru bisa
+
+# property binding dipakai jika melempar data beda component
