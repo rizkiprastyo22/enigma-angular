@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Ini Comonent A</h1>
+    <router-outlet></router-outlet>
+    <a routerLink="/component-b" class="btn btn-primary">Ke component B</a>
+
+    <h3>Name: {{ name }}</h3>
+    <h3>Address: {{ address }}</h3>
+
+    <p>Participants: {{ participants }}</p>
+
+    <!-- cara lain -->
+    <!-- <div *ngFor="let participant of participants">
+        <p>{{ participant }}</p>
+    </div> -->
+
+    <!-- concat -->
+    <p>Participants: <span [innerHTML]="participants.join(', ')"></span></p>
+
+    <p>Belajar bahasa {{ languages.name }} level {{ languages.difficulty }}</p>
+
+    <div *ngFor="let character of characterGenshin">
+        {{ character.name }} dengan vision {{ character.vision }}
+    </div>
+
+    <p>{{ characterGenshins() }}</p>
+
+</div>
