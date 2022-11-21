@@ -127,3 +127,78 @@ sehingga untuk path component-a bisa diubah jadi
     ]
 }
 ```
+
+# 9. add path variabel
+- di demo-routing.module.ts harus ditambahkan path variabel dulu
+- contoh di kita ingin membuat path variabel setelah path component-b
+```
+{
+    path: 'component-b/:id',
+    component: ComponentBComponent
+}
+```
+
+- lalu kita tambahkan di logic component-b.component.ts
+```
+export class ComponentBComponent implements OnInit {
+
+  // untuk menangnkap data path variable (data pasti bentuknya string)
+  id: string = '';
+  
+  constructor(
+    // ini observable
+    // jadi kita harus melakukan subscribe
+    private readonly route: ActivatedRoute
+  ){}
+
+  // lifecyce
+  // ngOnInit() => akan dipanggil ketika component-b dipanggil
+  ngOnInit(): void {
+    this.route.params.subscribe({
+      next: (params) => {
+        console.log('params:', params['id']) // buat cek di console
+        // this.id = parseInt(params['id']); //reassign id (apapun yang dikirim di path variable, itu pasti string, makanya bisa pake parseInt)
+
+        // tampung di variabel sementara untuk cek kondisi
+        const temp = Number(params['id']); // jika params['id'] bisa diubah ke number
+
+        // kalo datanya truty, print datanya
+        if(temp){ // jika params['id'] bisa diubah ke number
+          this.id = params['id']; // reassign id
+        }
+      }
+    })
+  }
+}
+```
+
+# 10. request params
+- contoh kita tambahkan di component-a.component.ts
+```
+export class ComponentAComponent implements OnInit {
+  // variable penampung
+  name: string = '';
+  address: string = '';
+
+  constructor(
+    private readonly route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+
+      // destruct object params
+      const { name, address } = params;
+      // kalo mau di hidden ketika gaada isi dari request param
+      // if(!name || !address) {
+      //   document.getElementById("h3").style.display = 'none';
+      // }
+      this.name = name;
+      this.address = address;
+
+    })
+  }
+}
+```
+
+- lalu kita tambahkan di url nya menjadi http://localhost:4200/component-a?name=adi&address=bali
