@@ -1,7 +1,16 @@
-<div class="container">
+<div class="container mt-5">
     <h1>Ini Comonent A</h1>
     <router-outlet></router-outlet>
     <a routerLink="/component-b" class="btn btn-primary">Ke component B</a>
+    <button class="btn btn-primary" [disabled]="clicked" (click)="tampilPesan()">Bisa diclick 5 detik</button>
+
+    <h4>{{ message }}</h4>
+
+    <h3 [innerHTML]="messageHover" (mouseover)="mouseOver()" (mouseout)="mouseOut()"></h3>
+
+    <input type="text" (change)="onMessageInput($event)">
+
+    <h4>{{ messageInput }}</h4>
 
     <!-- <h3>Name: {{ name }}</h3>
     <h3>Address: {{ address }}</h3>
@@ -9,20 +18,20 @@
     <p>Participants: {{ participants }}</p> -->
 
     <!-- cara lain -->
-    <div *ngFor="let participant of participants; index as i">
+    <!-- <div *ngFor="let participant of participants; index as i">
         <span [ngStyle]="{'color': i % 2 == 0 ? 'blue' : 'grey'}">
             {{ participant }}
         </span>
-    </div>
+    </div> -->
 
     <!-- concat -->
     <!-- <p>Participants: <span [innerHTML]="participants.join(', ')"></span></p>
 
     <p>Belajar bahasa {{ languages.name }} level {{ languages.difficulty }}</p> -->
 
-    <div *ngFor="let character of characterGenshin">
+    <!-- <div *ngFor="let character of characterGenshin">
         {{ character.name }} dengan vision {{ character.vision }}
-    </div>
+    </div> -->
 
     <!-- <p>{{ characterGenshins() }}</p> -->
 
