@@ -6,13 +6,17 @@ import { ComponentBComponent } from './component-b/component-b.component';
 import { DemoRoutingModule } from './demo-routing.module';
 import { ChildAaComponent } from './component-a/child-aa/child-aa.component';
 import { ChildAbComponent } from './component-a/child-ab/child-ab.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './parent/child/child.component';
 
 @NgModule({
   declarations: [
     ComponentAComponent,
     ComponentBComponent,
     ChildAaComponent,
-    ChildAbComponent
+    ChildAbComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,11 @@ import { ChildAbComponent } from './component-a/child-ab/child-ab.component';
   ],
   exports: [
     ComponentAComponent,
-    ComponentBComponent
+    ComponentBComponent,
+    ChildAaComponent,
+    ChildAbComponent,
+    ParentComponent,
+    ChildComponent
   ]
 })
 export class DemoModule { }

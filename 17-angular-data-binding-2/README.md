@@ -109,3 +109,42 @@ onMessageInput(input: any): void{
 ```
 
 - Nb: di html hanya bisa pakai $event, gabisa $message, $pesan, dll
+
+
+# data sharing parent-child
+## 1. parent -> child
+- ini caranya gampang, tinggal menggunakan @Input
+- contoh buat component parent dan child (di dalam parent)
+- ng g c parent dan ng g c parent/child (sebenernya gapapa sih gausah di dalem parent, cuma <app-child> di dalam parent.component)
+- urutannya:
+### a. parent.component.ts
+```
+title: string = 'title dari parent.component'
+```
+
+### b. child.component.ts
+```
+import { Component, OnInit, Input } from '@angular/core';
+
+@Input() title: string = ''
+```
+
+### c. child.component.html
+```
+<h5>{{ title }}</h5>
+```
+
+- menggunakan @Input() di child
+
+## 2. child -> parent
+- di child memerlukan EventEmitter
+
+### a. child.component.ts
+```
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+@Output() counter = new EventEmitter<number>()
+```
+
+
+# Two-way Binding

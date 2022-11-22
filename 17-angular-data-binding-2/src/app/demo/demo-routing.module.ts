@@ -4,6 +4,7 @@ import { ChildAaComponent } from "./component-a/child-aa/child-aa.component";
 import { ChildAbComponent } from "./component-a/child-ab/child-ab.component";
 import { ComponentAComponent } from "./component-a/component-a.component";
 import { ComponentBComponent } from "./component-b/component-b.component";
+import { ParentComponent } from "./parent/parent.component";
 
 const routes: Routes = [
     {
@@ -28,6 +29,10 @@ const routes: Routes = [
     {
         path: 'component-b/:id',
         component: ComponentBComponent
+    },
+    {
+        path: 'parent',
+        component: ParentComponent
     }
 ]
 

@@ -64,7 +64,6 @@ export class ComponentAComponent implements OnInit {
     // else{
     //   this.messageInput = 'saya tetap mandirian';
     // }
-    
     // biar keren
     value.toLowerCase() == 'mandiri' ? this.messageInput = 'aku mandirian'
     : this.messageInput = 'aku tetap mandirian'
