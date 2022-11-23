@@ -4,6 +4,7 @@ import { TodoComponent } from './todo.component';
 import { TodoListComponent } from './list/todo-list.component';
 import { TodoFormComponent } from './form/todo-form.component';
 import { TodoRoutingModule } from './todo-routing.modul';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const components = [
   TodoListComponent,
@@ -17,7 +18,9 @@ const components = [
   ],
   imports: [
     CommonModule,
-    TodoRoutingModule
+    TodoRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[TodoComponent]
 })

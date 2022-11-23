@@ -45,3 +45,81 @@
   <li class="list-group-item" *ngFor="let todo of todos">{{ todo.name }}</li>
 </ul>
 ```
+
+## 3. lempar data dari form ke list (saat ini harus lewat parent)
+- di todo-form.components.ts
+```
+@Output() saveTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+todoForm: FormGroup = new FormGroup({
+    // id: new FormControl(null),
+    // harus dibungkus array kalo di satu argumen yang sama
+    name: new FormControl(),
+    isCompleted: new FormControl(false)
+  })
+
+  onSubmit(): void {
+    // mau cek data dulu
+    console.log(this.todoForm.value);
+    this.saveTodo.emit(this.todoForm.value)
+    // buat kalo udah add langsung hapus
+    this.todoForm.reset();
+  }
+```
+- di todo-form.component.html
+```
+<div class="shadow-sm p-3 mb-5 bg-body rounded">
+  <div class="card-body">
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <div class="input-group mb-3">
+        <div class="input-group-text">
+          <input type="checkbox" class="form-check-input m-3">
+        </div>
+        <input type="text" class="form-control" placeholder="Todo" formControlName="name" />
+        <button class="btn btn-outline-primary" type="button">ADD</button>
+      </div>
+  </form>
+  </div>
+</div>
+```
+
+- di todo-component.ts
+```
+onSaveTodo(todo: Todo): void {
+    todo.id = this.todos.length + 1
+    // console.log(todo);
+    
+    this.todos.push(todo)
+  }
+```
+
+- di todo-component.html
+```
+<app-todo-form (saveTodo)="onSaveTodo($event)"></app-todo-form>
+```
+
+## 4. validasi data form
+- di todo-form.ts tambahkan
+```
+import { Validators } from '@angular/forms'
+
+name: new FormControl('', [Validators.requiredValidators.minLength(3)]),
+```
+
+- di todo-form.html
+```
+<div class="shadow-sm p-3 mb-5 bg-body rounded">
+  <div class="card-body">
+    <form [formGroup]="todoForm">
+      <div class="input-group mb-3">
+        <div class="input-group-text">
+          <input type="checkbox" class="form-check-input m-3">
+        </div>
+        <input type="text" class="form-control" placeholder="Todo" formControlName="name" />
+        <button class="btn btn-outline-primary" type="button" (click)="onSubmit()" [disabled]="!todoForm.valid">ADD</button>
+      </div>
+  </form>
+  </div>
+</div>
+```
+
+kita ganti dulu input hanya bisa pakai button, gabisa enter

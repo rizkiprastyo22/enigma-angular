@@ -34,4 +34,11 @@ export class TodoComponent implements OnInit {
     ]
   }
 
+  onSaveTodo(todo: Todo): void {
+    todo.id = this.todos.length + 1
+    // console.log(todo);
+    
+    this.todos.push(todo)
+  }
+
 }
