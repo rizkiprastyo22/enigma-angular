@@ -20,7 +20,7 @@ const routes: Routes = [
     },
     {
       path: 'todo',
-      component: TodoComponent
+      loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule)
     }
 ]
 

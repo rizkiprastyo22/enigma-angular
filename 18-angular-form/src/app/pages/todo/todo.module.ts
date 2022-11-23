@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TodoComponent } from './todo.component';
 import { TodoListComponent } from './list/todo-list.component';
 import { TodoFormComponent } from './form/todo-form.component';
+import { TodoRoutingModule } from './todo-routing.modul';
 
 const components = [
   TodoListComponent,
@@ -15,8 +16,8 @@ const components = [
     ...components
   ],
   imports: [
-    CommonModule
-    // TodoRoutingModule
+    CommonModule,
+    TodoRoutingModule
   ],
   exports:[TodoComponent]
 })

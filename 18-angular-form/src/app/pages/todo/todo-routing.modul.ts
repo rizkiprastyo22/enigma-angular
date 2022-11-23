@@ -7,20 +7,7 @@ import { TodoComponent } from "./todo.component";
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '',
-        pathMatch: "full"
-    },
-    {
-        path: '',
         component: TodoComponent
-    },
-    {
-        path: 'list',
-        component: TodoListComponent
-    },
-    {
-        path: 'form',
-        component: TodoFormComponent
     }
 ]
 

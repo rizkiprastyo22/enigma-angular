@@ -8,8 +8,6 @@ import { Todo } from '../model/todo.model';
 })
 export class TodoFormComponent implements OnInit {
 
-  @Input() todo: Todo
-
   constructor() { }
 
   ngOnInit(): void {
