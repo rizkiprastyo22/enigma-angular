@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './model/todo.model';
+import { TODO, Todo } from './model/todo.model';
 
 @Component({
   selector: 'app-todo',
@@ -20,18 +20,21 @@ export class TodoComponent implements OnInit {
   // data yang dilempar
   // disimpan di dalam fungsi karena biar bisa disimpan di session storage
   getTodos(): void{
-    this.todos = [
-      {
-        id: 1,
-        name: 'Learn Angular',
-        isCompleted: false
-      },
-      {
-        id: 2,
-        name: 'Makan',
-        isCompleted: true
-      }
-    ]
+    const sessionTodos: string = sessionStorage.getItem(TODO) as string;
+
+    // jika datanya gaaada, buat string kosong di session dan kita ambil
+    // JSON.stringify() -> dari object ke string
+    if(!sessionTodos){
+      const todos: Todo[] = []
+      sessionStorage.setItem(TODO, JSON.stringify(todos));
+      this.todos = todos
+    }
+
+    // kalo udah ada, tinggal parse aja data string dari session
+    // JSON.parse() -> dari string ke object
+    else{
+      this.todos = JSON.parse(sessionTodos);
+    }
   }
 
   onSaveTodo(todo: Todo): void {
@@ -39,6 +42,7 @@ export class TodoComponent implements OnInit {
     // console.log(todo);
     
     this.todos.push(todo)
+    sessionStorage.setItem(TODO, JSON.stringify(this.todos))
   }
 
 }

@@ -123,3 +123,36 @@ name: new FormControl('', [Validators.requiredValidators.minLength(3)]),
 ```
 
 kita ganti dulu input hanya bisa pakai button, gabisa enter
+
+## 5. simpan data di session storage
+- buka inspect element -> application -> session storage
+- di todo-component.ts
+```
+// data yang dilempar
+  // disimpan di dalam fungsi karena biar bisa disimpan di session storage
+  getTodos(): void{
+    const sessionTodos: string = sessionStorage.getItem(TODO) as string;
+
+    // jika datanya gaaada, buat string kosong di session dan kita ambil
+    // JSON.stringify() -> dari object ke string
+    if(!sessionTodos){
+      const todos: Todo[] = []
+      sessionStorage.setItem(TODO, JSON.stringify(todos));
+      this.todos = todos
+    }
+
+    // kalo udah ada, tinggal parse aja data string dari session
+    // JSON.parse() -> dari string ke object
+    else{
+      this.todos = JSON.parse(sessionTodos);
+    }
+  }
+
+  onSaveTodo(todo: Todo): void {
+    todo.id = this.todos.length + 1
+    // console.log(todo);
+    
+    this.todos.push(todo)
+    sessionStorage.setItem(TODO, JSON.stringify(this.todos))
+  }
+```

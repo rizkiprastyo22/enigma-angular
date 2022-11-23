@@ -5,7 +5,7 @@
     <form [formGroup]="todoForm">
       <div class="input-group mb-3">
         <div class="input-group-text">
-          <input type="checkbox" class="form-check-input m-3">
+          <input type="checkbox" class="form-check-input" formControlName="isCompleted">
         </div>
         <input type="text" class="form-control" placeholder="Todo" formControlName="name" />
         <button class="btn btn-outline-primary" type="button" (click)="onSubmit()" [disabled]="!todoForm.valid">ADD</button>
