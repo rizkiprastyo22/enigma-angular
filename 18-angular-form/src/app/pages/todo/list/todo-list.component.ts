@@ -9,8 +9,10 @@ import { Todo } from '../model/todo.model';
 export class TodoListComponent implements OnInit {
 
   @Input() todos: Todo[] = []
-  @Output() editTodo = new EventEmitter()
-  @Output() toggleTodo = new EventEmitter()
+  @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
+  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
+  @Output() editTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
+
 
   constructor() { }
 
@@ -18,6 +20,20 @@ export class TodoListComponent implements OnInit {
     
   }
 
-  
+  onCheckToggle(todo: Todo): void {
+    
+    // console.log(todo)
+    this.toggleTodo.emit(todo)
+  }
+
+  onDeleteToggle(todo: Todo): void {
+    // console.log(todo);
+    
+    this.deleteTodo.emit(todo)
+  }
+
+  onEditToggle(todo: Todo): void {
+    this.editTodo.emit(todo)
+  }
 
 }

@@ -4,11 +4,11 @@
     <div class="row mt-4">
         <div class="col-6">
             <h2>List</h2>
-            <app-todo-list [todos]="todos"></app-todo-list>
+            <app-todo-list [todos]="todos" (toggleTodo)="onToggleTodo($event)" (deleteTodo)="onDeleteTodo($event)" (editTodo)="onEditTodo($event)"></app-todo-list>
         </div>
         <div class="col-6">
             <h2>Form</h2>
-            <app-todo-form (saveTodo)="onSaveTodo($event)"></app-todo-form>
+            <app-todo-form [todo]="todo" (saveTodo)="onSaveTodo($event)"></app-todo-form>
         </div>
     </div>
 </div>
