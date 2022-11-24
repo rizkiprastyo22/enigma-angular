@@ -156,3 +156,6 @@ kita ganti dulu input hanya bisa pakai button, gabisa enter
     sessionStorage.setItem(TODO, JSON.stringify(this.todos))
   }
 ```
+
+
+## 6. untuk two way binding kita gabisa langsung definisi 

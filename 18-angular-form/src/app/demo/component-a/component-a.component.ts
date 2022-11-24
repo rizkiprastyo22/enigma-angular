@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from '../encapsulation/employee';
 
 @Component({
   selector: 'app-component-a',
@@ -83,6 +84,14 @@ export class ComponentAComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // ambil dari encapsulation
+    const employee: Employee = new Employee()
+    // employee.fullName = 'rizki'
+    // employee.address = 'bandung'
+    console.log(employee.toString());
+    
+    
 
     this.click5Detik();
     

@@ -8,6 +8,7 @@ import { ChildAaComponent } from './component-a/child-aa/child-aa.component';
 import { ChildAbComponent } from './component-a/child-ab/child-ab.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
+import { EncapsulationComponent } from './encapsulation/encapsulation.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ChildComponent } from './parent/child/child.component';
     ChildAaComponent,
     ChildAbComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    EncapsulationComponent
   ],
   imports: [
     CommonModule,

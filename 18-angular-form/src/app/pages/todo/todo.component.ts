@@ -8,12 +8,8 @@ import { TODO, Todo } from './model/todo.model';
 })
 export class TodoComponent implements OnInit {
   // buat lempar data ke child
-  todos: Todo[] = [];
-  todo: Todo = {
-    id: 0,
-    name: '',
-    isCompleted: false,
-  }
+  todos!: Todo[];
+  private _todo!: Todo
 
   constructor() {}
 
@@ -52,6 +48,11 @@ export class TodoComponent implements OnInit {
     }
   }
 
+  get todo(): Todo { return this._todo as Todo }
+  set todo(todo: Todo) {
+    this.onSaveTodo(todo)
+  }
+
   onSaveTodo(todo: Todo): void {
     // console.log(todo);
     if(todo.id){
@@ -87,6 +88,6 @@ export class TodoComponent implements OnInit {
 
   onEditTodo(todo: Todo): void {
     // console.log(todo);
-    this.todo = todo;
+    this._todo = todo;
   }
 }

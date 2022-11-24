@@ -11,7 +11,7 @@ export class TodoFormComponent implements OnInit, OnChanges {
 
   @Input() todo!: Todo
 
-  @Output() saveTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() todoChange: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   constructor() { }
 
@@ -32,7 +32,7 @@ export class TodoFormComponent implements OnInit, OnChanges {
   onSubmit(): void {
     // mau cek data dulu
     // console.log(this.todoForm.value);
-    this.saveTodo.emit(this.todoForm.value)
+    this.todoChange.emit(this.todoForm.value)
     // buat kalo udah add langsung hapus
     this.todoForm.reset();
   }
