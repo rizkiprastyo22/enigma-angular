@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms'
 import { Todo } from '../model/todo.model';
 
 @Component({
@@ -39,10 +39,35 @@ export class TodoFormComponent implements OnInit, OnChanges {
 
   setFormValue(todo: Todo){
     if(todo){
-      this.todoForm.controls['id']?.setValue(todo.id);
-      this.todoForm.controls['name']?.setValue(todo.name);
-      this.todoForm.controls['isCompleted']?.setValue(todo.name);
+      this.todoForm.controls['id']?.setValue(todo.id)
+      this.todoForm.controls['name']?.setValue(todo.name)
+      this.todoForm.controls['isCompleted']?.setValue(todo.name)
     }
+  }
+
+  // getter
+  // tambahkan ! agar memaksa input menjadi undefined
+  get name() { return this.todoForm.get('name')! }
+
+  // cara 1 biar bisa valid dan invalid
+  // isFormValid(todoField: string): string {
+  //   const control: AbstractControl = this.todoForm.get(todoField) as AbstractControl
+  //   let className = ''
+  //   // jika input tidak valid
+  //   if(control && control.invalid && (control.dirty || control.touched)){
+  //     className = 'is-invalid'
+  //   }
+  //   // jika input valid
+  //   else if(control && control.valid && (control.dirty || control.touched)){
+  //     className = 'is-valid'
+  //   }
+  //   return className
+  // }
+
+  // cara 2 biar kode lebih singkat tapi cuma bisa invalid
+  isFormValid(todoField: string): boolean {
+    const control: AbstractControl = this.todoForm.get(todoField) as AbstractControl
+    return(control && control.invalid && (control.dirty || control.touched))
   }
 
 }

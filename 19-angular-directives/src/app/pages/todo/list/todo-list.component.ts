@@ -9,6 +9,7 @@ import { Todo } from '../model/todo.model';
 export class TodoListComponent implements OnInit {
 
   @Input() todos: Todo[] = []
+  @Input() isLoading!: boolean
   @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
   @Output() editTodo: EventEmitter<Todo> = new EventEmitter<Todo>()

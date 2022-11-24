@@ -1,6 +1,10 @@
 <!-- cara cepat tapi todos nya harus didefinisikan undefined, bukan array kosong -->
 <!-- jika todos masih undefined, keluarkan spinner-border -->
-<div class="spinner-border" role="status" *ngIf="!todos">
+<!-- <div class="spinner-border" role="status" *ngIf="!todos">
+  <span class="sr-only"></span>
+</div> -->
+<!-- cara kedua kalo ga harus membuat variabel undefined -->
+<div class="spinner-border" role="status" *ngIf="isLoading">
   <span class="sr-only"></span>
 </div>
 <ul class="list-group">

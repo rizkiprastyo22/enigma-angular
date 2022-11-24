@@ -11,7 +11,7 @@ export class TodoComponent implements OnInit {
   todos!: Todo[];
   private _todo!: Todo
 
-  
+  isLoading: boolean = true
 
   constructor() {}
 
@@ -24,6 +24,7 @@ export class TodoComponent implements OnInit {
   // data yang dilempar
   // disimpan di dalam fungsi karena biar bisa disimpan di session storage
   getTodos(): void {
+    this.isLoading = false
     const sessionTodos: string = sessionStorage.getItem(TODO) as string;
 
     // jika datanya gaaada, buat string kosong di session dan kita ambil
