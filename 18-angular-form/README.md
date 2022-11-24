@@ -158,4 +158,4 @@ kita ganti dulu input hanya bisa pakai button, gabisa enter
 ```
 
 
-## 6. untuk two way binding kita gabisa langsung definisi 
+## 6. untuk two way binding kita gabisa langsung event binding, jadi pakai getter setter
