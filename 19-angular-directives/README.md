@@ -4,3 +4,5 @@
 # mempelajari spinner border
 
 # mempelajari form validation
+
+# perbedaan attribute dan structural directive adalah structural pakai bintang (*)

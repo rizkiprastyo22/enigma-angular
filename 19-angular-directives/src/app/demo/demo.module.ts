@@ -9,6 +9,7 @@ import { ChildAbComponent } from './component-a/child-ab/child-ab.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
 import { EncapsulationComponent } from './encapsulation/encapsulation.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EncapsulationComponent } from './encapsulation/encapsulation.component'
   imports: [
     CommonModule,
     RouterModule,
-    DemoRoutingModule
+    DemoRoutingModule,
+    SharedModule
   ],
   exports: [
     ComponentAComponent,
