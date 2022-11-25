@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="text-center">TODO</h1>
+    <h5 class="text-center">{{ today | dateCustom: 'eeee, dd MMMM yyyy' }}</h5>
+
+    <div class="row mt-4">
+        <div class="col-6">
+            <h2>List</h2>
+            <app-todo-list [todos]="todos" [isLoading]="isLoading" (toggleTodo)="onToggleTodo($event)" (deleteTodo)="onDeleteTodo($event)" (editTodo)="onEditTodo($event)"></app-todo-list>
+        </div>
+        <div class="col-6">
+            <h2>Form</h2>
+            <app-todo-form [(todo)]="todo"></app-todo-form>
+        </div>
+    </div>
+</div>
