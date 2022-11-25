@@ -5,10 +5,13 @@ import { FooterComponent } from './footer/footer.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { BsButtonDirective } from './directives/bs-button.directive';
 import { DatePipe } from './directives/date.pipe';
+import { ValidationMessageComponent } from './validation-message/validation-message.component';
+import { StringUtil } from './utils/string.util';
 
 const components = [
   HeaderComponent,
-  FooterComponent
+  FooterComponent, 
+  ValidationMessageComponent
 ]
 
 const directives = [
@@ -21,6 +24,7 @@ const directives = [
   imports: [
     CommonModule
   ],
-  exports: [...components, ...directives, DatePipe]
+  exports: [...components, ...directives, DatePipe],
+  providers: [StringUtil]
 })
 export class SharedModule { }
