@@ -1,0 +1,9 @@
+<section class="container mt-5">
+    <h1 class="text-primary">Child Component</h1>
+    <h5>{{ title }}</h5>
+    <h3>{{ count }}</h3>
+    <input type="text" (change)="onMessageChange($event)">
+    <input type="text" (change)="onNameChange($event)">
+    <button class="btn btn-primary" (click)="countIncrease()">+</button>
+    <button class="btn btn-danger" (click)="countDecrease()">-</button>
+</section>

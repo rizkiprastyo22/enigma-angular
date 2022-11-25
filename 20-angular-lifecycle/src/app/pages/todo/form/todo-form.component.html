@@ -1,0 +1,25 @@
+<div class="shadow-sm p-3 mb-5 bg-body rounded">
+  <div class="card-body">
+    <!-- yang bagus pake ini  -->
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <!-- <form [formGroup]="todoForm"> -->
+      <div class="input-group mb-3">
+        <div class="input-group-text">
+          <input type="checkbox" class="form-check-input" formControlName="isCompleted">
+        </div>
+        <!-- cara 1 biar bisa invalid dan valid -->
+        <!-- <input type="text" class="form-control {{ isFormValid('name') }}" formControlName="name" /> -->
+        <!-- cara 2 biar kode di ts lebih bersih -->
+        <input type="text" class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': isFormValid('name') }">
+        <button appBsButton color="PRIMARY" size="LARGE" type="button" (click)="onSubmit()" [disabled]="!todoForm.valid">ADD</button>
+        <div class="invalid-feedback" *ngIf="name.errors?.['required']">
+          Todo wajib diisi
+        </div>
+        <div class="invalid-feedback" *ngIf="name.errors?.['minlength']">
+          Todo wajib diisi minimal 3 karakter
+        </div>
+        <!-- <button class="btn btn-outline-primary" type="button" (click)="onSubmit()" [disabled]="!todoForm.valid">ADD</button> -->
+      </div>
+  </form>
+  </div>
+</div>
