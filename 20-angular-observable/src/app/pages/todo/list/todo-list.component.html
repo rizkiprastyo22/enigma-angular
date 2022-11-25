@@ -1,0 +1,29 @@
+<!-- cara cepat tapi todos nya harus didefinisikan undefined, bukan array kosong -->
+<!-- jika todos masih undefined, keluarkan spinner-border -->
+<div class="spinner-border" role="status" *ngIf="!todos">
+  <span class="sr-only"></span>
+</div>
+<!-- cara kedua kalo ga harus membuat variabel undefined -->
+<!-- <div class="spinner-border" role="status" *ngIf="isLoading">
+  <span class="sr-only"></span>
+</div> -->
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let todo of todos">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" [checked]="todo.isCompleted" (click)="checked(todo)"/>
+      &nbsp;
+      <label class="form-check-label">
+        <span class="text-decoration-line-through" *ngIf="todo.isCompleted; else isNotCompleted">{{ todo.name }}</span>
+        <ng-template #isNotCompleted>{{ todo.name }}</ng-template>
+      </label>
+      <!-- <button class="btn btn-link btn-sm float-end" *ngIf="!todo.isCompleted"> -->
+      <!-- <button class="btn btn-link btn-sm float-end" [hidden]="todo.isCompleted"> -->
+      <button class="btn btn-link btn-sm float-end" [ngClass]="{'visually-hidden': todo.isCompleted}" (click)="delete(todo)">
+        <i class="bi bi-trash" style="font-size: 1.2rem"></i>
+      </button>
+      <button class="btn btn-link btn-sm float-end">
+        <i class="bi bi-pencil-square" style="font-size: 1.2rem" routerLink="/todo/{{ todo.id }}"></i>
+      </button>
+    </div>
+  </li>
+</ul>
