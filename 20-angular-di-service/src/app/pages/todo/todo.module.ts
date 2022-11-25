@@ -6,6 +6,7 @@ import { TodoFormComponent } from './form/todo-form.component';
 import { TodoRoutingModule } from './todo-routing.modul';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TodoService } from './service/todo.service';
 
 const components = [
   TodoListComponent,
@@ -24,6 +25,7 @@ const components = [
     ReactiveFormsModule,
     SharedModule
   ],
+  providers: [TodoService],
   exports:[TodoComponent]
 })
 export class TodoModule { }

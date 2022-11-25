@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms'
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Todo } from '../model/todo.model';
+import { TodoService } from '../service/todo.service';
 
 @Component({
   selector: 'app-todo-form',
@@ -9,13 +11,22 @@ import { Todo } from '../model/todo.model';
 })
 export class TodoFormComponent implements OnInit, OnChanges {
 
-  @Input() todo!: Todo
+  todo!: Todo
 
-  @Output() todoChange: EventEmitter<Todo> = new EventEmitter<Todo>();
-
-  constructor() { }
+  constructor(
+    private todoService: TodoService, 
+    private readonly route: ActivatedRoute
+    // private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe({
+      next: (params: Params) => {
+        const { id } = params
+        this.todo = this.todoService.getId(+id)
+        this.setFormValue(this.todo)
+      }
+    })
   }
 
   ngOnChanges(): void{
@@ -32,9 +43,10 @@ export class TodoFormComponent implements OnInit, OnChanges {
   onSubmit(): void {
     // mau cek data dulu
     // console.log(this.todoForm.value);
-    this.todoChange.emit(this.todoForm.value)
     // buat kalo udah add langsung hapus
+    this.todoService.save(this.todoForm.value)
     this.todoForm.reset();
+    // this.router.navigateByUrl('todo')
   }
 
   setFormValue(todo: Todo){
