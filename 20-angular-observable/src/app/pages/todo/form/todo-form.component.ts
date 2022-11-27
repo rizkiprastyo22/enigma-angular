@@ -44,7 +44,7 @@ export class TodoFormComponent implements OnInit, OnChanges {
     // mau cek data dulu
     // console.log(this.todoForm.value);
     // buat kalo udah add langsung hapus
-    this.todoService.save(this.todoForm.value)
+    this.todoService.save(this.todoForm.value).subscribe()
     this.todoForm.reset();
     // this.router.navigateByUrl('todo')
   }

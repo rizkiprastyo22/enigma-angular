@@ -14,7 +14,15 @@ export class TodoListComponent implements OnInit {
   constructor(private todosService: TodoService) {   }
 
   ngOnInit(): void {
-    this.todos = this.todosService.getAll()
+    this.onLoadTodo()
+  }
+
+  onLoadTodo(): void{
+    this.todosService.getAll().subscribe({
+      next: (todos: Todo[]) => {
+        this.todos = todos
+      }
+    })
   }
 
   checked(todo: Todo){

@@ -1,0 +1,46 @@
+<!-- <div class="spinner-border" role="status">
+  <span class="sr-only"></span>
+</div> -->
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="form-check">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NIM</th>
+                <th scope="col">Nama Lengkap</th>
+                <th scope="col">Fakultas</th>
+                <th scope="col">Program Studi</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let mahasiswa of mahasiswas">
+                <th scope="row">{{ mahasiswa.id }}</th>
+                <td>{{ mahasiswa.nim }}</td>
+                <td>{{ mahasiswa.nama }}</td>
+                <td>{{ mahasiswa.fakultas }}</td>
+                <td>{{ mahasiswa.prodi }}</td>
+                <td>
+                    <button
+                        class="btn btn-link btn-sm float-center"
+                        (click)="onDeleteMahasiswa(mahasiswa)"
+                    >
+                        <i class="bi bi-trash"></i>
+                    </button>
+                    <button 
+                          class="btn btn-link btn-sm float-center"
+                          routerLink="/mahasiswa/{{ mahasiswa.id }}"
+                    >
+                        <i
+                        class="bi bi-pencil-square"
+                        ></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </li>
+</ul>

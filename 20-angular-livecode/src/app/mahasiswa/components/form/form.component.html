@@ -1,0 +1,25 @@
+<div class="shadow-sm p-3 mb-5 bg-body rounded">
+  <div class="card-body">
+    <form [formGroup]="mahasiswaForm" (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <div class="mb-3">
+          <label for="nim" class="form-label">NIM</label>
+          <input type="text" class="form-control" formControlName="nim" id="nim" />
+        </div>
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" formControlName="nama" id="nama" />
+        </div>
+        <div class="mb-3">
+          <label for="fakultas" class="form-label">Fakultas</label>
+          <input type="text" class="form-control" formControlName="fakultas" id="fakultas" />
+        </div>
+        <div class="mb-3">
+          <label for="prodi" class="form-label">Prodi</label>
+          <input type="text" class="form-control" formControlName="prodi" id="prodi" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
