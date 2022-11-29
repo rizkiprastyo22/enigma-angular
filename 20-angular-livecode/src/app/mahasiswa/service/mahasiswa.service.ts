@@ -79,13 +79,6 @@ export class MahasiswaService {
   })
 }
 
-getId(id: number): Mahasiswa {
-  try {
-    return this.mahasiswas.find((t) => t.id == id) as Mahasiswa;
-  } catch (e: any) {
-    return e.message;
-  }
-}
 
 getById(id: number): Observable<Mahasiswa>{
   return new Observable<Mahasiswa>((observer: Observer<Mahasiswa>) => {

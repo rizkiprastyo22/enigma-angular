@@ -1,12 +1,14 @@
 # urutan bikin project
-ng new data-mahasiswa --directory . --style=scss --routing=true --skip-tests
-ng g m mahasiswa
-ng g c mahasiswa --skip-tests
-ng g c mahasiswa/components/list --skip-tests
-ng g c mahasiswa/components/form --skip-tests
-ng g i mahasiswa/model/mahasiswa
-ng g i mahasiswa/service/IMahasiswa
-ng g s mahasiswa/service/mahasiswa --skip-tests
+ng new web-hotel-mandirian --directory . --style=scss --routing=true --skip-tests
+ng g m guest-book
+ng g c guest-book --skip-tests
+ng g c guest-book/components/booked-list --skip-tests
+ng g c guest-book/components/booked-form --skip-tests
+ng g i guest-book/model/book
+ng g i guest-book/model/guest
+ng g s guest-book/service/hotel-service --skip-tests
+ng g i guest-book/interface/ibook-form
+ng g i guest-book/interface/ibook-list
 
 1. ngatur routing
 di app-routing

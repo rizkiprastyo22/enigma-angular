@@ -1,0 +1,24 @@
+<section class="mt-5 p-5" appHighlight>
+<h1>Ini Komponen A</h1>
+<ul class="list-group">
+    <li class="list-group-item"> <a routerLink="/component-a/child-aa">child aa</a> </li>
+    <li class="list-group-item"> <a routerLink="/component-a/child-ab">child ab</a> </li>
+
+  </ul>
+<div class="mt-5 mb-5">
+  <h3 [innerHTML]="messageHover" (mouseover)="mouseOver()" (mouseout)="mouseOut()"></h3>
+</div>
+
+<div class="mb-5">
+  <input type="text" class="form-control" (change)="onMessageInput($event)">
+</div>
+<h5 class="mb-5">{{messageInput}}</h5>
+
+
+<div class="btn-group">
+<button routerLink="/demo/component-b/11" class="btn btn-outline-primary mb-5"> Ke Komponen B</button>
+<button class="btn btn-outline-warning mb-5" [disabled]="isDisabled" (click)="showMe()">Show Meh</button>
+
+</div>
+<h5> {{message}} </h5>
+</section>

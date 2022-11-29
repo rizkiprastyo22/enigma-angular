@@ -26,11 +26,11 @@ export class TodoListComponent implements OnInit {
   }
 
   checked(todo: Todo){
-    this.todosService.checked(todo)
+    this.todosService.checked(todo).subscribe()
   }
 
   delete(todo: Todo){
-    this.todosService.delete(todo)
+    this.todosService.delete(todo).subscribe()
   }
 
 }

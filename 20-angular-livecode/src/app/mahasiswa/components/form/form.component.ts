@@ -52,8 +52,12 @@ export class FormComponent implements OnInit, OnChanges {
     this.route.params.subscribe({
       next: (params: Params) => {
         const { id } = params
-        this.mahasiswa = this.mahasiswaService.getId(+id)
-        this.setForValue(this.mahasiswa)
+        this.mahasiswaService.getById(+id).subscribe({
+          next: (mahasiswa: Mahasiswa) => {
+            this.mahasiswa = mahasiswa
+            this.setForValue(this.mahasiswa)
+          }
+        })
       }
     })
   }

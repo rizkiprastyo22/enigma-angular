@@ -1,0 +1,58 @@
+<section id="login" class="login mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-title">
+              <h3>Login</h3>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-floating">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    formControlName="email"
+                  />
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <app-validation-message
+                  [control]="loginForm.get('email')"
+                  [field]="'email'"
+                ></app-validation-message>
+                <div class="form-floating mt-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': isFormValid('email') }"
+                    id="floatingPassword"
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+                  <label for="floatingPassword">Password</label>
+                  <app-validation-message
+                    [control]="loginForm.get('password')"
+                    [field]="'password'"
+                  ></app-validation-message>
+                  <div class="mt-3 form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      [ngClass]="{ 'is-invalid': isFormValid('password') }"
+                      id="exampleCheck1"
+                    />
+                  </div>
+                </div>
+                <div class="d-grid gap-2 btn-login">
+                  <button class="btn btn-outline-primary" type="submit">
+                    LOGIN
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

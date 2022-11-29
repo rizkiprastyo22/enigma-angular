@@ -80,12 +80,14 @@ export class TodoService {
     })
   }
 
-  getId(id: number): Todo {
-    try {
-      return this.todos.find((t) => t.id == id) as Todo;
-    } catch (e: any) {
-      return e.message;
-    }
+  getId(id: number): Observable<Todo> {
+    return new Observable<Todo>((observer: Observer<Todo>) => {
+      try {
+        observer.next(this.todos.find((t) => t.id == id) as Todo)
+      } catch (e: any) {
+        observer.error(e.message)
+      }
+    })
   }
 
   private setToStorage(): void {

@@ -15,16 +15,21 @@ export class TodoFormComponent implements OnInit, OnChanges {
 
   constructor(
     private todoService: TodoService, 
-    private readonly route: ActivatedRoute
-    // private router: Router
+    private readonly route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe({
       next: (params: Params) => {
         const { id } = params
-        this.todo = this.todoService.getId(+id)
-        this.setFormValue(this.todo)
+        this.todoService.getId(+id).subscribe({
+          next: (todo: Todo) => {
+            this.todo = todo
+            this.setFormValue(this.todo) 
+          }
+        })
+        
       }
     })
   }
@@ -46,7 +51,7 @@ export class TodoFormComponent implements OnInit, OnChanges {
     // buat kalo udah add langsung hapus
     this.todoService.save(this.todoForm.value).subscribe()
     this.todoForm.reset();
-    // this.router.navigateByUrl('todo')
+    this.router.navigateByUrl('todo')
   }
 
   setFormValue(todo: Todo){
