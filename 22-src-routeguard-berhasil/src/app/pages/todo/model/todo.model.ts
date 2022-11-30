@@ -1,7 +1,8 @@
 export interface Todo{
-    id:number,
+    id?:string | undefined,
     name:string,
     isCompleted:boolean
+    createdAt: Date
   }
 
   export const TODO = 'todo'

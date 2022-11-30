@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { RouteGuard } from "../shared/guard/route.guard";
 import { ChildAaComponent } from "./component-a/child-aa/child-aa.component";
 import { ChildAbComponent } from "./component-a/child-ab/child-ab.component";
 import { ComponentAComponent } from "./component-a/component-a.component";
@@ -29,6 +30,8 @@ const routes: Routes = [
     },
     {
       path: 'parent',
+      canActivate:[RouteGuard],
+      canActivateChild:[RouteGuard],
       component: ParentComponent,
 
     },

@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { TodoRoutingModule } from './todo-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoService } from './service/todo.service';
 
 
 
@@ -22,7 +24,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     TodoRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    HttpClientModule
   ],
+  providers:[TodoService],
   exports:[
     TodoComponent
   ]

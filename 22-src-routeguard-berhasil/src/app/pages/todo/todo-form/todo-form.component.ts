@@ -14,6 +14,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiResponse } from 'src/app/shared/model/api-response.model';
 import { TODO, Todo, TodoField } from '../model/todo.model';
 import { TodoService } from '../service/todo.service';
 
@@ -38,13 +39,14 @@ export class TodoFormComponent implements OnInit, OnChanges {
     this.route.params.subscribe({
       next: (params) => {
         this.todoService.get(params['id']).subscribe({
-          next:(todo)=>{
-            this.todo=todo
+          next:(response: ApiResponse<Todo>)=>{
+            this.todo = response.data
+            this.setFormValue(this.todo)
           }
         })
         // +id berfungsi untuk menjadikan number dari string
         // berlaku untuk bilangan bulat
-        this.setFormValue(this.todo)
+        
       },
     });
   }

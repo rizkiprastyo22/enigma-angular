@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ApiResponse } from 'src/app/shared/model/api-response.model';
+import Swal from 'sweetalert2';
 import { TODO, Todo } from '../model/todo.model';
 import { TodoService } from '../service/todo.service';
 
@@ -8,30 +11,50 @@ import { TodoService } from '../service/todo.service';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent implements OnInit {
-  todos: Todo[] = [];
+  todos!: Todo[];
   isLoading: boolean = true;
-  constructor(private readonly todoService: TodoService) {}
+  storage: Storage = sessionStorage
+  constructor(
+    private readonly todoService: TodoService
+  ) {}
 
   ngOnInit(): void {
     this.onLoadTodo()
   }
 
   onCheckTodo(todo: Todo): void {
-    todo.isCompleted=!todo.isCompleted
+    // todo.isCompleted=!todo.isCompleted
     this.todoService.toggle(todo).subscribe()
   }
 
   onLoadTodo() {
     this.isLoading = false;
     this.todoService.getAll().subscribe({
-      next:(todos:Todo[])=>{
-        this.todos=todos
-      }
+      next: (response: ApiResponse<Todo[]>) => {
+        this.onSuccessLoadTodo(response);
+      },
+      error: (errorResponse: HttpErrorResponse) => {
+        this.onErrorLoadTodo(errorResponse);
+      },
     })
   }
 
+  private onSuccessLoadTodo(response: ApiResponse<Todo[]>) {  
+    this.todos = response.data
+  }
+
+  private onErrorLoadTodo(error: HttpErrorResponse) {
+    if (error.status === 401) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Data tidak ada',
+      });
+    }
+  }
+
   onDeleteTodo(todo: Todo): void {
-    this.todoService.delete(todo).subscribe()
+    this.todoService.remove(todo).subscribe()
   }
 
   // onEditTodo(todo: Todo): void {

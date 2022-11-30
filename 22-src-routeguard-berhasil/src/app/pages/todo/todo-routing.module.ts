@@ -1,18 +1,48 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { TodoFormComponent } from "./todo-form/todo-form.component";
+import { TodoListComponent } from "./todo-list/todo-list.component";
 import { TodoComponent } from "./todo.component";
 
 const routes: Routes = [
     {
       path: '',
-      component: TodoComponent
+      component: TodoListComponent
     },
     {
-      path: ':id',
-      component: TodoComponent
+      path: 'form',
+      component: TodoFormComponent
     },
+    {
+      path: 'form/:id',
+      component: TodoFormComponent
+    }
 
+    
   ];
+
+  // bagusnya kayak gini
+  // const routes: Routes = [
+  //   {
+  //     path: '',
+  //     component: TodoComponent,
+  //     children:[
+  //       {
+  //         path: '',
+  //         component: TodoListComponent
+  //       },
+  //       {
+  //         path: 'form',
+  //         component: TodoFormComponent
+  //       },
+  //       {
+  //         path: 'form/:id',
+  //         component: TodoFormComponent
+  //       }
+  //     ]
+  //   }
+
+  // ]
   
   @NgModule({
     imports: [RouterModule.forChild(routes)],

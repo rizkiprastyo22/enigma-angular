@@ -34,7 +34,7 @@ import { StringUtil } from './utils/string.util.service';
     HighlightDirective,
     BsButtonDirective,
     DateCustomPipe,
-    ValidationMessageComponent,
+    ValidationMessageComponent
   ],
   providers:[StringUtil]
 })

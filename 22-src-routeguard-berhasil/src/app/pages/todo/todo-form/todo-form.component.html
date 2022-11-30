@@ -1,26 +1,32 @@
-<h3>Form</h3>
-<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-      <div class="input-group mb-3">
-        <div class="input-group-text">
-          <input
-            class="form-check-input mt-0"
-            type="checkbox"
-            value=""
-            aria-label="Checkbox for following text input"
-            formControlName="isCompleted"
-          />
-        </div>
+<section class="container p-5 mt-5">
+  <h3>Form</h3>
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="input-group mb-3">
+      <div class="input-group-text">
         <input
-          type="text"
-          class="form-control {{ isFormValid('name') }}"
-          placeholder="Todo"
-          aria-label="Todo"
-          formControlName="name"
+          class="form-check-input mt-0"
+          type="checkbox"
+          value=""
+          aria-label="Checkbox for following text input"
+          formControlName="isCompleted"
         />
-        <button appBsButton color="success" [disabled]="!todoForm.valid">ADD</button>
-        <!-- <div class="invalid-feedback"*ngIf="name.errors?.['required']">Wajib Diisi Bestie</div>
-        <div class="invalid-feedback"*ngIf="name.errors?.['minlength']">Minimal 3 Karakter Bestie</div> -->
       </div>
-      <app-validation-message [control]="todoForm.get('name')" [field]="'todo'"></app-validation-message>
-      </form>
-    
+      <input
+        type="text"
+        class="form-control {{ isFormValid('name') }}"
+        placeholder="Todo"
+        aria-label="Todo"
+        formControlName="name"
+      />
+      <button appBsButton color="success" [disabled]="!todoForm.valid">
+        ADD
+      </button>
+      <!-- <div class="invalid-feedback"*ngIf="name.errors?.['required']">Wajib Diisi Bestie</div>
+        <div class="invalid-feedback"*ngIf="name.errors?.['minlength']">Minimal 3 Karakter Bestie</div> -->
+    </div>
+    <app-validation-message
+      [control]="todoForm.get('name')"
+      [field]="'todo'"
+    ></app-validation-message>
+  </form>
+</section>
