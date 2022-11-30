@@ -54,7 +54,34 @@ export class TodoListComponent implements OnInit {
   }
 
   onDeleteTodo(todo: Todo): void {
-    this.todoService.remove(todo).subscribe()
+    if (todo.isCompleted) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Todo sudah selesai tidak bisa dihapus!'
+      })
+    } else {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          );
+          this.todoService.remove(todo).subscribe(() => {
+            this.onLoadTodo();
+          });
+        }
+      });
+    }
   }
 
   // onEditTodo(todo: Todo): void {
