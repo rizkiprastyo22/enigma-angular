@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col">
+    <section class="p-5">
+      <h1 class="text-danger">Parent</h1>
+      <h1>{{ count }}</h1>
+      <!-- <h1>{{ messageInputParent }}</h1> -->
+      <h1>{{messageMandirianParent}}</h1>
+    </section>
+  </div>
+  <div class="col">
+    <app-child
+      [title]="title"
+      [(counter)]="count"
+      [(messageMandirianInput)]="messageMandirianParent"
+    ></app-child>
+  </div>
+</div>
