@@ -4,3 +4,8 @@
 
 buat lihat summary
 - ng test --code-coverage --no-watch
+
+ng build --configuration production --aot
+
+docker build -t dap-mandiri-apps .
+
