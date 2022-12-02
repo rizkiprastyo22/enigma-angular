@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
   banner:string='We focus on training and teaching our clients the fundamentals and advance programming languages that suitable for the industry';
+  warning: string = 'text-warning'
 
   constructor() { }
 

@@ -1,6 +1,6 @@
 export interface ApiResponse<T>{
-    "code": 200,
-    "status": "OK",
-    "message": "User signed in successfully",
+    "code": string,
+    "status": string,
+    "message": string,
     "data": T
 }
